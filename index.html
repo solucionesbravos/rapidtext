@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RapidText — Respuestas y Notas Rápidas para Windows</title>
+  <meta name="description" content="Gestiona notas frecuentes y pégalas al instante en chats, correos y navegadores con atajos globales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0b0f17;
+      --card-bg: rgba(23, 32, 48, 0.7);
+      --border: rgba(255, 255, 255, 0.08);
+      --primary: #03a9f4;
+      --primary-hover: #0288d1;
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg) 60%);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      padding: 24px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 100%;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.35rem;
+      letter-spacing: -0.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo-badge {
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      margin: 60px auto 40px;
+      padding: 0 24px;
+      text-align: center;
+    }
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -1px;
+      margin-bottom: 20px;
+    }
+    h1 span {
+      background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    p.lead {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 36px;
+    }
+    .cta-container {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      margin-bottom: 50px;
+    }
+    .btn {
+      padding: 14px 28px;
+      border-radius: 10px;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 10px 25px -5px rgba(3, 169, 244, 0.4);
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+    }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      text-align: left;
+      margin-top: 40px;
+    }
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      backdrop-filter: blur(12px);
+    }
+    .card-icon {
+      font-size: 1.6rem;
+      margin-bottom: 12px;
+      display: inline-block;
+    }
+    .card h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    footer {
+      padding: 30px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      ⚡ RapidText <span class="logo-badge">v1.0.1</span>
+    </div>
+    <a href="https://github.com/solucionesbravos/rapidtext" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">GitHub</a>
+  </header>
+
+  <main>
+    <h1>Respuestas instantáneas en Windows <span>con un atajo</span></h1>
+    <p class="lead">
+      Organiza tus mensajes, números de cuenta y respuestas frecuentes. Inyéctalos directamente en WhatsApp Web, Chrome, correos o terminales sin abrir ventanas extra.
+    </p>
+
+    <div class="cta-container">
+      <a href="https://github.com/solucionesbravos/rapidtext/releases/latest/download/RapidText.zip" class="btn btn-primary">
+        ⬇ Descargar para Windows
+      </a>
+      <a href="#caracteristicas" class="btn btn-secondary">
+        Ver Atajos y Funciones
+      </a>
+    </div>
+
+    <div class="features-grid" id="caracteristicas">
+      <div class="card">
+        <span class="card-icon">⚡</span>
+        <h3>Modo Rápido (Ctrl + Q)</h3>
+        <p>Presiona Ctrl + Q y pulsa el número de nota deseado. RapidText lo inyecta en el campo de texto activo sin fugas de teclas.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">📁</span>
+        <h3>6 Grupos Personalizables</h3>
+        <p>Organiza respuestas por Ventas, Soporte, Plantillas o Enlaces, cada uno con colores configurables desde la aplicación.</p>
+      </div>
+      <div class="card">
+        <span class="card-icon">🛡</span>
+        <h3>Ligero y Privado</h3>
+        <p>No depende de servidores externos ni lee tu portapapeles. Todo se guarda localmente en tu carpeta AppData.</p>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2026 RapidText. Construido para soporte y ventas de alta velocidad.</p>
+  </footer>
+
+</body>
+</html>
