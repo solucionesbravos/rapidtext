@@ -1,6 +1,6 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "fecha": "2026-10-06",
   "descarga_url": "https://github.com/solucionesbravos/rapidtext/releases/latest/download/RapidText.zip",
-  "novedades": "Soporte para colores de grupos personalizados y modo secuencia rápido optimizado."
+  "novedades": "Actualizador automático integrado y mejoras de estabilidad."
 }
