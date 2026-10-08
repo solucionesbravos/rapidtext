@@ -17,8 +17,10 @@
       --primary-hover: #0288d1;
       --text: #f1f5f9;
       --text-muted: #94a3b8;
+      --accent-orange: #f59e0b;
     }
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Plus Jakarta Sans', sans-serif;
       background: radial-gradient(circle at 50% 0%, #1e293b 0%, var(--bg) 60%);
@@ -36,6 +38,11 @@
       max-width: 1100px;
       margin: 0 auto;
       width: 100%;
+    }
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
     .logo {
       font-weight: 800;
@@ -141,13 +148,140 @@
       color: var(--text-muted);
       font-size: 0.92rem;
     }
+
+    /* --- SECCIÓN MANUAL DE INSTALACIÓN --- */
+    .manual-section {
+      margin-top: 80px;
+      text-align: left;
+    }
+    .manual-header {
+      text-align: center;
+      margin-bottom: 36px;
+    }
+    .manual-header h2 {
+      font-size: clamp(1.8rem, 4vw, 2.3rem);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      margin: 10px 0;
+    }
+    .manual-header p {
+      color: var(--text-muted);
+      font-size: 1rem;
+    }
+    .badge-sub {
+      background: rgba(3, 169, 244, 0.15);
+      color: var(--primary);
+      border: 1px solid rgba(3, 169, 244, 0.3);
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+    .step-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      backdrop-filter: blur(12px);
+    }
+    .step-num {
+      background: var(--primary);
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.1rem;
+      min-width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .step-details h4 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .step-details p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      line-height: 1.55;
+    }
+    .step-details ul, .step-details ol {
+      margin-left: 20px;
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+    .step-details li {
+      margin-bottom: 6px;
+    }
+    .smartscreen-alert {
+      border-left: 3px solid var(--accent-orange);
+      background: rgba(245, 158, 11, 0.08);
+      padding: 12px 16px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .smartscreen-alert strong {
+      color: var(--accent-orange);
+    }
+    .key {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid var(--border);
+      padding: 2px 7px;
+      border-radius: 5px;
+      font-family: monospace;
+      font-size: 0.85rem;
+      color: #38bdf8;
+    }
+    .support-box {
+      margin-top: 30px;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px dashed var(--border);
+      border-radius: 14px;
+      padding: 20px;
+      text-align: center;
+    }
+    .support-box p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 12px;
+    }
+    .support-links {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    .support-links a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+    }
+    .support-links a:hover {
+      text-decoration: underline;
+    }
+
     footer {
       padding: 30px;
       text-align: center;
       font-size: 0.85rem;
       color: var(--text-muted);
       border-top: 1px solid var(--border);
-      margin-top: 40px;
+      margin-top: 60px;
     }
   </style>
 </head>
@@ -157,7 +291,10 @@
     <div class="logo">
       ⚡ RapidText <span class="logo-badge">v1.0.4</span>
     </div>
-    <a href="https://github.com/solucionesbravos/rapidtext" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">GitHub</a>
+    <div class="header-actions">
+      <a href="#manual" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">Guía de Instalación</a>
+      <a href="https://github.com/solucionesbravos/rapidtext" class="btn btn-secondary" style="padding: 8px 16px; font-size: 0.85rem;">GitHub</a>
+    </div>
   </header>
 
   <main>
@@ -170,11 +307,12 @@
       <a href="https://github.com/solucionesbravos/rapidtext/releases/latest/download/RapidText.exe" class="btn btn-primary">
         ⬇ Descargar para Windows
       </a>
-      <a href="#caracteristicas" class="btn btn-secondary">
-        Ver Atajos y Funciones
+      <a href="#manual" class="btn btn-secondary">
+        📖 Ver Manual de Instalación
       </a>
     </div>
 
+    <!-- Tarjetas de Características -->
     <div class="features-grid" id="caracteristicas">
       <div class="card">
         <span class="card-icon">⚡</span>
@@ -192,10 +330,95 @@
         <p>No depende de servidores externos ni lee tu portapapeles. Todo se guarda localmente en tu carpeta AppData.</p>
       </div>
     </div>
+
+    <!-- SECCIÓN: MANUAL DE INSTALACIÓN Y PRIMEROS PASOS -->
+    <section class="manual-section" id="manual">
+      <div class="manual-header">
+        <span class="badge-sub">Guía de Uso</span>
+        <h2>Instalación y Configuración Inicial</h2>
+        <p>Sigue estos sencillos pasos para tener RapidText listo en tu equipo en menos de 1 minuto.</p>
+      </div>
+
+      <div class="steps-list">
+
+        <!-- Paso 1 -->
+        <div class="step-card">
+          <div class="step-num">1</div>
+          <div class="step-details">
+            <h4>Descarga y Ejecución</h4>
+            <p>Haz clic en el botón <strong>Descargar para Windows</strong>. Al completar la descarga en tu navegador, haz clic sobre el archivo <code>RapidText.exe</code> para ejecutarlo.</p>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="step-card">
+          <div class="step-num">2</div>
+          <div class="step-details">
+            <h4>Aviso de SmartScreen de Microsoft Defender</h4>
+            <p>Al ser la primera vez que se ejecuta el programa en tu equipo, Windows puede mostrar una advertencia de protección:</p>
+            <div class="smartscreen-alert">
+              <p>1. Haz clic sobre el enlace <strong>"Más información"</strong> en la ventana emergente.</p>
+              <p>2. Luego presiona el botón <strong>"Ejecutar de todas formas"</strong> que aparecerá abajo. <em>(Este aviso solo sale la primera vez).</em></p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="step-card">
+          <div class="step-num">3</div>
+          <div class="step-details">
+            <h4>Activación o Modo Gratuito</h4>
+            <p>Se abrirá la ventana de bienvenida con dos opciones disponibles:</p>
+            <ul>
+              <li><strong>Licencia PRO:</strong> Si cuentas con tu clave, ingrésala en la casilla y presiona <em>"ACTIVAR SUSCRIPCIÓN PRO"</em>.</li>
+              <li><strong>Modo Gratuito:</strong> Haz clic en <em>"Continuar con Versión Gratuita (Límite 8 notas)"</em> para usar la funcionalidad completa sin costo alguno.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="step-card">
+          <div class="step-num">4</div>
+          <div class="step-details">
+            <h4>Uso del Cuaderno Flotante</h4>
+            <p>RapidText se posicionará discretamente en la esquina superior derecha por encima de tus demás programas.</p>
+            <ul>
+              <li><strong>Desplegar u Ocultar:</strong> Haz doble clic sobre el cuaderno o usa el atajo <span class="key">Alt</span> + <span class="key">Q</span>.</li>
+              <li><strong>Agregar notas:</strong> Presiona el botón <span class="key">+</span> abajo a la derecha. Puedes pegar textos largos, saltos de línea y emojis.</li>
+              <li><strong>Cambiar de grupo:</strong> Haz clic en los cuadros de colores de la parte superior para navegar entre tus categorías.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Paso 5 -->
+        <div class="step-card">
+          <div class="step-num">5</div>
+          <div class="step-details">
+            <h4>Configuración Recomendada</h4>
+            <p>Haz clic en el ícono de engranaje (⚙️) para entrar a ajustes:</p>
+            <ul>
+              <li>Activa la casilla <strong>"Iniciar automáticamente al encender Windows"</strong> para tener tus respuestas disponibles siempre al arrancar tu PC.</li>
+              <li>Personaliza los nombres y colores de cada grupo o gestiona el estado de tu licencia.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Caja de soporte / contacto comercial -->
+      <div class="support-box">
+        <p>¿Necesitas licencias comerciales, soporte o tienes consultas sobre el software?</p>
+        <div class="support-links">
+          <a href="https://wa.me/51933489086" target="_blank" rel="noopener noreferrer">💬 WhatsApp: +51 933 489 086</a>
+          <a href="mailto:solucionesbravos@gmail.com">✉️ Correo: solucionesbravos@gmail.com</a>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <footer>
-    <p>© 2026 RapidText. Construido para soporte y ventas de alta velocidad.</p>
+    <p>© 2026 RapidText · Soluciones Bravos. Construido para soporte y ventas de alta velocidad.</p>
   </footer>
 
 </body>
